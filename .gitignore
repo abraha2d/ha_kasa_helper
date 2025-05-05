@@ -1,0 +1,5 @@
+.vscode
+
+# pixi environments
+.pixi
+*.egg-info
