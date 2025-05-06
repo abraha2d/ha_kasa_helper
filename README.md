@@ -4,7 +4,7 @@ A set of helper actions to use with TP-Link Kasa devices.
 
 ## Usage
 
-[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=abraha2d&repository=ha_kasa_helper)
+[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=abraha2d&repository=ha_kasa_helper&category=integration)
 
 ### Manual install
 
@@ -17,7 +17,7 @@ A set of helper actions to use with TP-Link Kasa devices.
    kasa_helper:
    ```
 
-3. Restart Home Assistant
+3. Restart Home Assistant.
 
 ## Helpers
 
