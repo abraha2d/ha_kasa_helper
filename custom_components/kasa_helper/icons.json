@@ -1,0 +1,7 @@
+{
+  "services": {
+    "set_brightness": {
+      "service": "mdi:brightness-6"
+    }
+  }
+}

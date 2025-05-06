@@ -131,6 +131,7 @@ async def handle_set_brightness(hass: HomeAssistant, call: ServiceCall):
         and (entry := hass.config_entries.async_get_entry(entry_id)) is not None
     )
 
+    # Use python-kasa to set brightness without turning the dimmers on
     brightness = call.data.get("brightness", 100)
 
     async def _set_brightness(config_entry: ConfigEntry):

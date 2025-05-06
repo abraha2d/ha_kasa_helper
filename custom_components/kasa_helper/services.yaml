@@ -1,0 +1,19 @@
+set_brightness:
+  name: Set brightness
+  description: Sets the brightness level of a Kasa dimmer without turning it on.
+  target:
+    entity:
+      integration: tplink
+      domain: light
+  fields:
+    brightness:
+      name: Brightness
+      description: Number indicating the percentage of full brightness, where 0 turns the light off, 1 is the minimum brightness, and 100 is the maximum brightness.
+      required: true
+      example: 50
+      default: 50
+      selector:
+        number:
+          min: 0
+          max: 100
+          unit_of_measurement: "%"

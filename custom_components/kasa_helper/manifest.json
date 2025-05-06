@@ -1,0 +1,13 @@
+{
+  "domain": "kasa_helper",
+  "name": "Kasa Helper",
+  "codeowners": ["@abraha2d"],
+  "dependencies": ["tplink"],
+  "documentation": "https://github.com/abraha2d/ha_kasa_helper",
+  "integration_type": "service",
+  "iot_class": "local_push",
+  "issue_tracker": "https://github.com/abraha2d/ha_kasa_helper/issues",
+  "requirements": ["python-kasa"],
+  "single_config_entry": true,
+  "version": "0.1.0"
+}
