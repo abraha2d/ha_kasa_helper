@@ -155,7 +155,7 @@ async def handle_set_brightness(hass: HomeAssistant, call: ServiceCall):
 
             await device._query_helper(  # type: ignore
                 "set_device_info", {
-                    "brightness": brightness,
+                    "brightness": int(brightness),
                     "device_on": device_info["device_on"],
                 },
             )
