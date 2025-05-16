@@ -13,6 +13,7 @@ from kasa import (
     Device,
 )
 from kasa.iot import IotDimmer
+from kasa.smart import SmartDevice
 
 from .const import DOMAIN
 
@@ -142,13 +143,25 @@ async def handle_set_brightness(hass: HomeAssistant, call: ServiceCall):
             host=config_entry.data.get("host", None),
             credentials_hash=config_entry.data.get("credentials_hash", None),
             connection_type=connection_type,
-            # uses_http=config_entry.data.get("uses_http", False),
         )
 
-        dimmer = await Device.connect(config=config)
-        assert isinstance(dimmer, IotDimmer)
+        device = await Device.connect(config=config)
 
-        await dimmer._set_brightness(brightness)  # type: ignore
+        if isinstance(device, IotDimmer):
+            await device._set_brightness(brightness)  # type: ignore
+
+        elif isinstance(device, SmartDevice) and "Brightness" in device.modules:
+            device_info = await device._query_helper("get_device_info")["get_device_info"]  # type: ignore
+
+            await device._query_helper(  # type: ignore
+                "set_device_info", {
+                    "brightness": brightness,
+                    "device_on": device_info["device_on"],
+                },
+            )
+
+        else:
+            assert False, f"{device} is not a supported dimmer"
 
     await gather(*(_set_brightness(config_entry) for config_entry in config_entries))
 
